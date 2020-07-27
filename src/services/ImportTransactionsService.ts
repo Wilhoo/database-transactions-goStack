@@ -1,12 +1,10 @@
 import { getCustomRepository, getRepository, In } from 'typeorm';
 import csvParse from 'csv-parse';
 import fs from 'fs';
-// import path from 'path';
 import Transaction from '../models/Transaction';
 import Category from '../models/Category';
 
 import TransactionRepository from '../repositories/TransactionsRepository';
-import TransactionsRepository from '../repositories/TransactionsRepository';
 
 interface CSVTransaction {
   title: string;
@@ -18,8 +16,6 @@ interface CSVTransaction {
 class ImportTransactionsService {
   async execute(filePath: string): Promise<Transaction[]> {
     // TODO
-    // const csvFilePath = path.resolve(__dirname, 'import_template.csv');
-
     const transactionRepository = getCustomRepository(TransactionRepository);
     const categoriesRepository = getRepository(Category);
 

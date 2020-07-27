@@ -10,8 +10,6 @@ interface Balance {
 
 @EntityRepository(Transaction)
 class TransactionsRepository extends Repository<Transaction> {
-  // linha de cima remover depois
-
   public async getBalance(): Promise<Balance> {
     // TODO
     const transactions = await this.find();
